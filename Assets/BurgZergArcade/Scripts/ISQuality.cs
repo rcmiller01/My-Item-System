@@ -1,25 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class ISQuality : IISQuality {
-    [SerializeField]string _name;
-    [SerializeField]Sprite _Icon;
 
-    ISQuality()
+namespace BurgZergArcade.ItemSystem
+{
+    [System.Serializable]
+    public class ISQuality : IISQuality
     {
-        _name = "Common";
-        _Icon = new Sprite();
-    }
+        [SerializeField]
+        string _name;
+        [SerializeField]
+        Sprite _Icon;
 
-    public string Name {
-        get { return _name; }
-        set { _name = value; }
-    }
+        ISQuality()
+        {
+            _name = "Common";
+            _Icon = new Sprite();
+        }
 
-    public Sprite Icon {
-        get { return _Icon; }
-        set { _Icon = value; }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
 
+        public Sprite Icon
+        {
+            get { return _Icon; }
+            set { _Icon = value; }
+
+        }
     }
 }
