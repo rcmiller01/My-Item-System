@@ -12,7 +12,7 @@ namespace BurgZergArcade.ItemSystem
         [SerializeField]
         Sprite _Icon;
 
-        ISQuality()
+        public ISQuality()
         {
             _name = "Common";
             _Icon = new Sprite();

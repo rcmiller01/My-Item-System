@@ -7,7 +7,7 @@ namespace BurgZergArcade.ItemSystem
 
     public class ISQualityDatabase : ScriptableObject
     {
-        [SerializeField]
-        List<ISQuality> db = new List<ISQuality>();
+     //   [SerializeField]
+     public List<ISQuality> db = new List<ISQuality>();
     }
 }
