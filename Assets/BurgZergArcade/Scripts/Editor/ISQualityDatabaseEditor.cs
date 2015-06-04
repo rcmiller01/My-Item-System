@@ -79,7 +79,8 @@ namespace BurgZergArcade.ItemSystem.Editor
                 {
                 if (selectedItem == null)
                     return;
-                qualityDatabase.db.Add(selectedItem);
+                qualityDatabase.Add(selectedItem);
+                //qualityDatabase.db.Add(selectedItem);
 
                 selectedItem = new ISQuality();
             }
