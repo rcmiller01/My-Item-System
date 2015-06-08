@@ -23,6 +23,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         {
             for (int cnt = 0; cnt < qualityDatabase.Count; cnt++)
             {
+                GUILayout.BeginHorizontal( "Box");
                 if (qualityDatabase.Get(cnt).Icon)
                     selectedTexture = qualityDatabase.Get(cnt).Icon.texture;
                 else
@@ -42,13 +43,25 @@ namespace BurgZergArcade.ItemSystem.Editor
                     {
 
                         qualityDatabase.Get(selectedIndex).Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject();
-                        selectedIndex = -1;
+                        //selectedIndex = -1;
                     }
                     Repaint();
                 }
+                GUILayout.BeginVertical();
                 //name
                 qualityDatabase.Get(cnt).Name =  GUILayout.TextField( qualityDatabase.Get(cnt).Name);
-                GUILayout.Button("x");
+                if(GUILayout.Button("X", GUILayout.Width(30), GUILayout.Height(25)))
+                {
+                    if(EditorUtility.DisplayDialog("Delete Quality",
+                        "Are you sure you want to delete"+qualityDatabase.Get(cnt).Name + "from database?",
+                        "Delete",
+                        "Cancel"))
+                    {
+                        qualityDatabase.Remove(cnt);
+                    }
+                    GUILayout.EndVertical();
+                    GUILayout.EndHorizontal();
+                }
             }
         }
     }

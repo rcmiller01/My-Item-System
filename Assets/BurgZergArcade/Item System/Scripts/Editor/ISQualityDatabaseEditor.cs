@@ -15,7 +15,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         int selectedIndex = -1;
 
 
-        const int SPRITE_BUTTON_SIZE = 92;
+        const int SPRITE_BUTTON_SIZE = 46;
 
         const string DATABASE_FULL_PATH = @"Assets/" + DATBASE_FOLDER_NAME + "/" + DATABASE_FILE_NAME;
         const string DATABASE_FILE_NAME = @"bzaQualityDatabase.asset";
@@ -52,7 +52,23 @@ namespace BurgZergArcade.ItemSystem.Editor
         void OnGUI()
         {
             ListView();
- //           AddQualityToDatabase();
+            //           AddQualityToDatabase();
+            GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
+            BottomBar();
+            GUILayout.EndHorizontal();
+
+        }
+
+        void BottomBar()
+        {
+            //count
+            GUILayout.Label("Qualities:"+qualityDatabase.Count);
+
+            //addbutton
+            if (GUILayout.Button("Add"))
+            {
+                qualityDatabase.Add(new ISQuality());
+            }
 
         }
 
