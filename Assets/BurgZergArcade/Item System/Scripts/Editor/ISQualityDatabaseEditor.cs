@@ -5,11 +5,14 @@ using UnityEditor;
 
 namespace BurgZergArcade.ItemSystem.Editor
 {
-    public partial class ISQualityDatabaseEditor : EditorWindow {
+    public partial class ISQualityDatabaseEditor : EditorWindow
+    {
 
         ISQualityDatabase qualityDatabase;
         ISQuality selectedItem;
         Texture2D selectedTexture;
+        Vector2 _scrollPos;     //scroll position for ListView
+        int selectedIndex = -1;
 
 
         const int SPRITE_BUTTON_SIZE = 92;
@@ -48,7 +51,8 @@ namespace BurgZergArcade.ItemSystem.Editor
 
         void OnGUI()
         {
-            AddQualityToDatabase();
+            ListView();
+ //           AddQualityToDatabase();
 
         }
 
@@ -79,6 +83,10 @@ namespace BurgZergArcade.ItemSystem.Editor
                 {
                 if (selectedItem == null)
                     return;
+
+                if (selectedItem.Name == "")
+                    return;
+
                 qualityDatabase.Add(selectedItem);
                 //qualityDatabase.db.Add(selectedItem);
 

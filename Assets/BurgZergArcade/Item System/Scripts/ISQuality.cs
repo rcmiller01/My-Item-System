@@ -10,12 +10,12 @@ namespace BurgZergArcade.ItemSystem
         [SerializeField]
         string _name;
         [SerializeField]
-        Sprite _Icon;
+        Sprite _icon;
 
         public ISQuality()
         {
-            _name = "Common";
-            _Icon = new Sprite();
+            _name = "";
+            _icon = new Sprite();
         }
 
         public string Name
@@ -26,8 +26,8 @@ namespace BurgZergArcade.ItemSystem
 
         public Sprite Icon
         {
-            get { return _Icon; }
-            set { _Icon = value; }
+            get { return _icon; }
+            set { _icon = value; }
 
         }
     }
