@@ -7,23 +7,16 @@ namespace BurgZergArcade.ItemSystem
     public interface IISObject
     {
         //name
-        string ISName { get; set; }
+        string Name { get; set; }
         //value - gold value
-        int ISValue { get; set; }
+        int Value { get; set; }
         //sprite - Icon
-        Sprite ISIcon { get; set; }
+        Sprite Icon { get; set; }
         //burden
-        int ISBurden { get; set; }
+        int Burden { get; set; }
         //qualitylevel - defined as its own class
-        ISQuality ISQuality { get; set; }
+        ISQuality Quality { get; set; }
 
-        //
-        //these go to other item interfaces
-        //equip
         //questItem flag
-        //durability
-        //takeDamage
-        //prefab
-
     }
 }

@@ -9,7 +9,7 @@ namespace BurgZergArcade.ItemSystem.Editor
     {
 
         ISQualityDatabase qualityDatabase;
-        ISQuality selectedItem;
+//        ISQuality selectedItem;
         Texture2D selectedTexture;
         Vector2 _scrollPos;     //scroll position for ListView
         int selectedIndex = -1;
@@ -45,14 +45,14 @@ namespace BurgZergArcade.ItemSystem.Editor
                     AssetDatabase.Refresh();
        
             }
-            selectedItem = new ISQuality();
+            //selectedItem = new ISQuality(); removed episode 8
         }
 
 
         void OnGUI()
         {
             ListView();
-            //           AddQualityToDatabase();
+            //AddQualityToDatabase(); removed episode 8
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
             BottomBar();
             GUILayout.EndHorizontal();
@@ -72,43 +72,43 @@ namespace BurgZergArcade.ItemSystem.Editor
 
         }
 
-        void AddQualityToDatabase()
-        {
-            //name
-            selectedItem.Name = EditorGUILayout.TextField("Name:", selectedItem.Name);
-            //sprite
-            if (selectedItem.Icon)
-                selectedTexture = selectedItem.Icon.texture;
-            else
-                selectedTexture = null;
-
-           if( GUILayout.Button(selectedTexture, GUILayout.Width(SPRITE_BUTTON_SIZE),GUILayout.Height(SPRITE_BUTTON_SIZE)))
-            {
-                int controlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
-                EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controlerID);
-            }
-
-            string commandName = Event.current.commandName;
-            if(commandName == "ObjectSelectorUpdated")
-            {
-                selectedItem.Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject();
-                Repaint();
-            }
-
-            if (GUILayout.Button("Save"))
+        /***        void AddQualityToDatabase()
                 {
-                if (selectedItem == null)
-                    return;
+                    //name
+                    selectedItem.Name = EditorGUILayout.TextField("Name:", selectedItem.Name);
+                    //sprite
+                    if (selectedItem.Icon)
+                        selectedTexture = selectedItem.Icon.texture;
+                    else
+                        selectedTexture = null;
 
-                if (selectedItem.Name == "")
-                    return;
+                   if( GUILayout.Button(selectedTexture, GUILayout.Width(SPRITE_BUTTON_SIZE),GUILayout.Height(SPRITE_BUTTON_SIZE)))
+                    {
+                        int controlerID = EditorGUIUtility.GetControlID(FocusType.Passive);
+                        EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controlerID);
+                    }
 
-                qualityDatabase.Add(selectedItem);
-                //qualityDatabase.db.Add(selectedItem);
+                    string commandName = Event.current.commandName;
+                    if(commandName == "ObjectSelectorUpdated")
+                    {
+                        selectedItem.Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject();
+                        Repaint();
+                    }
 
-                selectedItem = new ISQuality();
-            }
-        }
+                    if (GUILayout.Button("Save"))
+                        {
+                        if (selectedItem == null)
+                            return;
+
+                        if (selectedItem.Name == "")
+                            return;
+
+                        qualityDatabase.Add(selectedItem);
+                        //qualityDatabase.db.Add(selectedItem);
+
+                        selectedItem = new ISQuality();
+                    } 
+                } ***/
 
     }
 }
