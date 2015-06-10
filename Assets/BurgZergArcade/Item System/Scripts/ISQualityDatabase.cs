@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,9 +7,9 @@ using System.Linq; //needed for ElementAt
 namespace BurgZergArcade.ItemSystem
 {
 
-    public class ISQualityDatabase : ScriptableObject
+    public class ISQualityDatabase : ScriptableObjectDatabase<ISQuality>
     {
-    //    [SerializeField]
+   /***     [SerializeField]
         List<ISQuality> db = new List<ISQuality>();
 
         public void Add(ISQuality item)
@@ -52,6 +52,6 @@ namespace BurgZergArcade.ItemSystem
         {
             db[index] = item;
             EditorUtility.SetDirty(this);
-        }
+        }***/
     }
 }

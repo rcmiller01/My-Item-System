@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
 namespace BurgZergArcade.ItemSystem
 {
+
+    [System.Serializable]
 
     public class ISObject : IISObject
     {

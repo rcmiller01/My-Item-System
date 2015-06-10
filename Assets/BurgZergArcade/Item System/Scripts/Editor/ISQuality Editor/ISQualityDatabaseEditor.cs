@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEditor;
 
@@ -9,17 +9,16 @@ namespace BurgZergArcade.ItemSystem.Editor
     {
 
         ISQualityDatabase qualityDatabase;
-//        ISQuality selectedItem;
+//      ISQuality selectedItem;
         Texture2D selectedTexture;
         Vector2 _scrollPos;     //scroll position for ListView
         int selectedIndex = -1;
 
-
         const int SPRITE_BUTTON_SIZE = 46;
 
-        const string DATABASE_FULL_PATH = @"Assets/" + DATBASE_FOLDER_NAME + "/" + DATABASE_FILE_NAME;
-        const string DATABASE_FILE_NAME = @"bzaQualityDatabase.asset";
-        const string DATBASE_FOLDER_NAME = @"Database";
+        const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+        const string DATABASE_NAME = @"bzaQualityDatabase.asset";
+        const string DATABASE_PATH = @"Database";
 
         [MenuItem("BZA/Database/Quality Editor %#i")]
 
@@ -27,30 +26,26 @@ namespace BurgZergArcade.ItemSystem.Editor
         {
             ISQualityDatabaseEditor window = EditorWindow.GetWindow<ISQualityDatabaseEditor>();
             window.minSize = new Vector2(400, 300);
-            window.title = "Quality DB";
+            //window.titleContent = "Quality DB";
+            window.title = "Quality DB";  //deprecated
             window.Show();
         }
         void OnEnable()
         {
-            qualityDatabase = AssetDatabase.LoadAssetAtPath(DATABASE_FULL_PATH, typeof(ISQualityDatabase)) as ISQualityDatabase;
+            qualityDatabase = ScriptableObject.CreateInstance<ISQualityDatabase>();
+            qualityDatabase = qualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
 
-            if (qualityDatabase == null)
-            {
-                if (AssetDatabase.IsValidFolder("Assets/" + DATBASE_FOLDER_NAME))
-                    AssetDatabase.CreateFolder("Assets", DATBASE_FOLDER_NAME);
-                  
-                    qualityDatabase = ScriptableObject.CreateInstance<ISQualityDatabase>();
-                    AssetDatabase.CreateAsset(qualityDatabase, DATABASE_FULL_PATH);
-                    AssetDatabase.SaveAssets();
-                    AssetDatabase.Refresh();
-       
-            }
-            //selectedItem = new ISQuality(); removed episode 8
+
         }
 
 
         void OnGUI()
         {
+            if(qualityDatabase == null)
+            {
+                Debug.LogWarning("qualityDatabase not loaded");
+                return;
+            }
             ListView();
             //AddQualityToDatabase(); removed episode 8
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));

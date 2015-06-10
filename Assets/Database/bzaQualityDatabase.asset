@@ -11,3 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5579cbc5bb0f435499b184a8f743c8bf, type: 3}
   m_Name: bzaQualityDatabase
   m_EditorClassIdentifier: 
+  database: []
