@@ -20,7 +20,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         const string DATABASE_NAME = @"bzaQualityDatabase.asset";
         const string DATABASE_PATH = @"Database";
 
-        [MenuItem("BZA/Database/Quality Editor %#i")]
+        [MenuItem("BZA/Database/Quality Editor %#w")]
 
         public static void Init()
         {
