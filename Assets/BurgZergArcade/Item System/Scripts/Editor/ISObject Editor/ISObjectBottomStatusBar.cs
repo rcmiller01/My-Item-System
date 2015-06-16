@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace BurgZergArcade.ItemSystem.Editor
@@ -9,6 +9,7 @@ namespace BurgZergArcade.ItemSystem.Editor
         void BottomStatusBar()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
+
             GUILayout.EndHorizontal();
         }
 

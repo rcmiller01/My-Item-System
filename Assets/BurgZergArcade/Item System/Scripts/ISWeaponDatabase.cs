@@ -3,10 +3,8 @@ using System.Collections;
 
 namespace BurgZergArcade.ItemSystem
 {
-
-    public interface IISGameObject
-    { 
-        GameObject Prefac { get; }
+    public class ISWeaponDatabase : ScriptableObjectDatabase<ISWeapon>
+    {
 
     }
 

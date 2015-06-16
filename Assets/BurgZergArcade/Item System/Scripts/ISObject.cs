@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 
@@ -9,16 +10,11 @@ namespace BurgZergArcade.ItemSystem
 
     public class ISObject : IISObject
     {
-        [SerializeField]
-        Sprite _Icon;
-        [SerializeField]
-        string _name;
-        [SerializeField]
-        int _value;
-        [SerializeField]
-        int _burden;
-        [SerializeField]
-        ISQuality _quality;
+        [SerializeField] Sprite _Icon;
+        [SerializeField] string _name;
+        [SerializeField] int _value;
+        [SerializeField] int _burden;
+        [SerializeField] ISQuality _quality;
 
 
         public string Name
@@ -47,6 +43,26 @@ namespace BurgZergArcade.ItemSystem
         {
             get { return _quality; }
             set { _quality = value; }
+        }
+
+        public virtual void OnGUI()
+        {
+            GUILayout.BeginVertical();
+            Name = EditorGUILayout.TextField("Name: ", Name);
+            _value =System.Convert.ToInt32( EditorGUILayout.TextField("Value: ", _value.ToString()));
+            _burden = System.Convert.ToInt32(EditorGUILayout.TextField("Burden: ", _burden.ToString()));
+            DisplayIcon();
+            DisplayQuality();
+            GUILayout.EndVertical();
+        }
+
+        public void DisplayIcon()
+        {
+            GUILayout.Label("Icon");
+        }
+        public void DisplayQuality()
+        {
+            GUILayout.Label("Quality");
         }
     }
 }

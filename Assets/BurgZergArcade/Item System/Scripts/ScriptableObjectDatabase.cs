@@ -53,7 +53,7 @@ namespace BurgZergArcade
             EditorUtility.SetDirty(this);
         }
 
-        public U GetDatabase<U>(string databasePath, string databaseName) where U : ScriptableObject
+        public static U GetDatabase<U>(string databasePath, string databaseName) where U : ScriptableObject
         {
             string databaseFullPath = @"Assets/" + databasePath + "/" + databaseName;
 

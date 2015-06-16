@@ -10,11 +10,30 @@ namespace BurgZergArcade.ItemSystem.Editor
         void TopTabbar()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
-            GUILayout.Button("Weapons");
-            GUILayout.Button("Armor");
-            GUILayout.Button("Consumables");
-            GUILayout.Button("About");
+            WeaponTab();
+            ArmorTab();
+            ConsumablesTab();
+            AboutTab();
             GUILayout.EndHorizontal();
         }
+
+        void WeaponTab() {
+            GUILayout.Button("Weapons");
+        }
+        void ArmorTab()
+        {
+            GUILayout.Button("Armor");
+
+        }
+        void ConsumablesTab()
+        {
+            GUILayout.Button("Consumables");
+        }
+        void AboutTab()
+        {
+            GUILayout.Button("About");
+        }
+
     }
+
 }
